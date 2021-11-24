@@ -1,0 +1,47 @@
+*{
+    font-family: 'Mali', cursive;
+    font-weight: 800;
+}    
+#content{
+    width: 600px;
+    background-color: aqua;
+    padding: 0px;
+}
+header{
+    font-size: 50px;
+    font-family: 'Carter One', cursive;
+    text-align: center;
+}
+label{
+    font-size: medium;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.add, .del{
+    font-weight: bold;
+}
+.card-body{
+    padding: 8px;
+}
+.task-completed{
+    padding: 0px;
+}
+.task-completed>input[type=checkbox]{
+    margin: 15px;
+}
+.card-title{
+    font-size: 15px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.card-text{
+    font-size: 12px;
+    font-weight: 600;
+}
+input[type=checkbox]:checked+label {
+    color:red;
+    text-decoration: line-through;
+}

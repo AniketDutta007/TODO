@@ -1,9 +1,28 @@
-const express = require('express'); // importing the express module
-const app = express(); // firing the express server
-const port = 8000; // assinging port
+// importing the express module
+const express = require('express');
+// firing the express server
+const app = express();
+// assinging port
+const port = 8000;
 
+const path = require('path');
+
+// setting up the routers
 app.use('/', require('./routers/index'));
 
+// setting up the view engine
+app.set('view engine','ejs');
+// setting the path to the folder to the views
+// __dirname to get the path from where the server is hosted
+app.set('views', path.join(__dirname, 'views'));
+
+// middleware
+app.use(express.urlencoded());
+
+// middleware to link the static files
+app.use(express.static('assets'));
+
+// Initiating SERVER or setting up the request listener
 app.listen(port, function(err){ // callback function to determine server status
     if(err){
         console.log(`Error in running the SERVER : ${err}`);
