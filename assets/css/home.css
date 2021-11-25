@@ -1,47 +1,136 @@
-*{
-    font-family: 'Mali', cursive;
-    font-weight: 800;
-}    
-#content{
-    width: 600px;
-    background-color: aqua;
-    padding: 0px;
+:root{
+    --primary-color: #5cdb95;
+    --secondary-color: #8ee4af;
+    --primary-text-color: #05386b;
+    --secondary-text-color: #edf5e1;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secondary-text-color);
+}
+main{
+    width: 500px;
+    font-family: 'Roboto Mono', monospace;
+    padding: 25px;
+    padding-bottom: 30px;
+    margin: 0px auto;
+    background-color: var(--primary-color);
+    border-radius: 3%;
 }
 header{
-    font-size: 50px;
-    font-family: 'Carter One', cursive;
+    font-size: 30px;
+    font-family: 'Arvo', serif;
     text-align: center;
+    color: var(--primary-text-color);
 }
-label{
-    font-size: medium;
-    font-family: 'Montserrat Alternates', sans-serif;
-    font-weight: bold;
-    text-transform: uppercase;
+.form-floating>label, #floatingSelectCategory>option{
+    color: var(--primary-text-color);
+}
+#floatingInputTitle, #datepicker{
+    color: var(--primary-text-color);
+    background-color: transparent;
+    border-bottom-width: 1px;
+    border-bottom-color: var(--secondary-text-color);
+}
+#floatingTextareaDescription, #floatingSelectCategory{
+    color: var(--primary-text-color);
+    background-color: var(--secondary-color);
+    background-color: var(--secondary-color);
+}
+#floatingTextareaDescription{
+    height: 100px;
 }
 .add, .del{
-    font-weight: bold;
+    color: var(--secondary-text-color);
 }
-.card-body{
-    padding: 8px;
+option{
+    font-weight: lighter;
 }
-.task-completed{
-    padding: 0px;
+.accordion-button{
+    height: auto;
 }
-.task-completed>input[type=checkbox]{
-    margin: 15px;
+.accordion-button:not(.collapsed){
+    background-color: var(--secondary-color);
 }
-.card-title{
-    font-size: 15px;
-    font-weight: bold;
+.task-details{
+    width: 80%;
+}
+.task-title{
+    width: 75%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.card-text{
-    font-size: 12px;
-    font-weight: 600;
+.form-control:focus, .form-select:focus  {
+    box-shadow: none;
 }
-input[type=checkbox]:checked+label {
-    color:red;
+.accordion-item, .accordion-button{
+    color: var(--primary-text-color);
+    background-color:var(--secondary-color);
+}
+.accordion-button{
+    padding: 10px;
+}
+.accordion-button::after, .accordion-button:not(.collapsed)::after{
+    content: none;
+}
+.task-title{
+    width: 100%;
+    font-size: 16px;
+    margin: 4px 0px;
+}
+.task-deadline{
+    font-size: 12px;
+    font-weight: bold;
+    margin: 4px 0px;
+}
+.task-category{
+    font-size: 16px;
+    color: var(--secondary-text-color);
+    padding: 8px;
+    background-color: var(--primary-text-color);
+    border-radius: 4px;
+}
+.task-title, .task-deadline, .task-category{
+    text-transform: uppercase;
+}
+.accordion-body{
+    font-weight: 100;
+}
+.accordion-body>strong{
+    font-weight: bold;
+}
+input[type=checkbox]:checked+label .task-title, input[type=checkbox]:checked+label .task-deadline {
+    color:var(--secondary-text-color);
     text-decoration: line-through;
+}
+:focus:not(:focus-visible) {
+    outline: 0;
+    box-shadow: none;
+}
+.row-heading{
+    text-align: right;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.row-data{
+    font-size: 13px;
+    text-transform: capitalize;
+}
+#tasks-list{
+    max-height: 200px;
+    margin: 20px 5px;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+#tasks-list::-webkit-scrollbar {
+    display: none;
+}
+/* Hide scrollbar for IE and Edge */
+#tasks-list {
+    -ms-overflow-style: none;
 }

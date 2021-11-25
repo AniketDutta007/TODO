@@ -7,6 +7,12 @@ const port = 8000;
 
 const path = require('path');
 
+// middleware
+app.use(express.urlencoded());
+
+// middleware to link the static files
+app.use(express.static('assets'));
+
 // setting up the routers
 app.use('/', require('./routers/index'));
 
@@ -15,12 +21,6 @@ app.set('view engine','ejs');
 // setting the path to the folder to the views
 // __dirname to get the path from where the server is hosted
 app.set('views', path.join(__dirname, 'views'));
-
-// middleware
-app.use(express.urlencoded());
-
-// middleware to link the static files
-app.use(express.static('assets'));
 
 // Initiating SERVER or setting up the request listener
 app.listen(port, function(err){ // callback function to determine server status
