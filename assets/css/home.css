@@ -62,6 +62,13 @@ option{
 #tasks-list {
     -ms-overflow-style: none;
 }
+input[type=checkbox]{
+    background-color: var(--secondary-text-color);
+}
+.form-check-input:checked{
+    background-color: var(--primary-text-color);
+    border-color: var(--primary-text-color);
+}
 input[type=checkbox]:checked+label .task-title, input[type=checkbox]:checked+label .task-deadline {
     color:var(--secondary-text-color);
     text-decoration: line-through;
