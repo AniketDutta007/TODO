@@ -1,3 +1,4 @@
+/* css variables to set theme */
 :root{
     --primary-color: #5cdb95;
     --secondary-color: #8ee4af;
@@ -27,29 +28,35 @@ header{
     text-align: center;
     color: var(--primary-text-color);
 }
+/* setting colors for the labels */
 .form-floating>label, #floatingSelectCategory>option{
     color: var(--primary-text-color);
 }
+/* removing the border highlight from the input field */
 #floatingInputTitle, #datepicker{
     color: var(--primary-text-color);
     background-color: transparent;
     border-bottom-width: 1px;
     border-bottom-color: var(--secondary-text-color);
 }
+/* setting style for the description and category section */
 #floatingTextareaDescription, #floatingSelectCategory{
     color: var(--primary-text-color);
     background-color: var(--secondary-color);
     background-color: var(--secondary-color);
 }
+/* setting the height for the description field */
 #floatingTextareaDescription{
     height: 100px;
 }
+/* setting font color for the add and delete buttons */
 .add, .del{
     color: var(--secondary-text-color);
 }
 option{
     font-weight: lighter;
 }
+/* setting style for the task list */
 #tasks-list{
     max-height: 200px;
     margin: 20px 5px;
@@ -62,6 +69,7 @@ option{
 #tasks-list {
     -ms-overflow-style: none;
 }
+/* setting the checkbox style */
 input[type=checkbox]{
     background-color: var(--secondary-text-color);
 }
@@ -69,10 +77,12 @@ input[type=checkbox]{
     background-color: var(--primary-text-color);
     border-color: var(--primary-text-color);
 }
+/* strike accordion header on marking checked or completed */
 input[type=checkbox]:checked+label .task-title, input[type=checkbox]:checked+label .task-deadline {
     color:var(--secondary-text-color);
     text-decoration: line-through;
 }
+/* accordion style */
 .accordion-button{
     height: auto;
 }
@@ -102,6 +112,7 @@ input[type=checkbox]:checked+label .task-title, input[type=checkbox]:checked+lab
     outline: 0;
     box-shadow: none;
 }
+/* setting style for the accordion content */
 .task-details{
     width: 75%;
 }

@@ -10,23 +10,27 @@
     <link rel="stylesheet" href="/resources/demos/style.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" type="text/css" href="/css/home.css">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Open+Sans&family=Roboto+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
     <main>
+        <!-- Header -->
         <header>TODO App</header>
+        <!-- Input TASK Form -->
         <form class="row g-3 task-user-input" action="/create-task" method="POST">
+            <!-- TASK Title -->
             <div class="form-floating col-12">
                 <input type="text" class="form-control border-top-0 border-start-0 border-end-0 rounded-0" id="floatingInputTitle" placeholder="Add Title" required="true" name="title">
                 <label for="floatingInputTitle">Title</label>
             </div>
+            <!-- TASK Description -->
             <div class="form-floating col-12">
                 <textarea class="form-control" placeholder="Add Description" id="floatingTextareaDescription" rows="4" name="description"></textarea>
                 <label for="floatingTextareaDescription">Description</label>
             </div>
+            <!-- TASK Category -->
             <div class="form-floating col-md-6">
                 <select class="form-select" id="floatingSelectCategory" aria-label="Floating label select example" name="category">
                     <option selected>Choose a category</option>
@@ -38,24 +42,31 @@
                 </select>
                 <label for="floatingSelectCategory">Category</label>
             </div>
+            <!-- TASK Deadline -->
             <div class="form-floating col-md-6">
                 <input type="text" class="form-control border-top-0 border-start-0 border-end-0 rounded-0" id="datepicker" placeholder="Date" name="deadline" autocomplete="off">
                 <label for="datepicker">Deadline</label>
             </div>
+            <!-- Add TASK -->
             <div class="col-6 d-flex justify-content-end">
                 <button type="submit" class="btn btn-secondary add"><i class="fas fa-plus"></i> Add Task</button>
             </div>
+            <!-- Delete TASK -->
             <div class="col-6">
                 <button type="button" class="btn btn-danger del" id="del-tasks"><i class="fas fa-trash"></i> Delete Task</button>
             </div>
         </form>
+        <!-- TASK List -->
         <div id="tasks-list" class="overflow-auto">
             <%const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];%>
             <%for(let task of tasks_list){%>
             <div class="form-check">
+                <!-- Checkbox to show TASK Status -->
                 <input class="form-check-input" type="checkbox" name="tasks" id=<%=task._id%> <%=task.status?'checked':''%> value=<%=task._id%>>
                 <label class="form-check-label d-block" for=<%=task._id%>>
+                    <!-- TASK Accordion -->
                     <div class="accordion-item">
+                        <!-- TASK Accordion Header -->
                         <h2 class="accordion-header" id="headingOne">
                             <button class="accordion-button  collapsed" type="button" data-bs-toggle="collapse" data-bs-target=<%="#collapse"+task._id%> aria-expanded="true" aria-controls=<%="collapse"+task._id%>>
                                 <div class="task-details d-inline-block">
@@ -67,16 +78,20 @@
                                 <%}%>
                             </button>
                         </h2>
+                        <!-- TASK Accordion Body -->
                         <div id=<%="collapse"+task._id%> class="accordion-collapse collapse" aria-labelledby=<%="heading"+task._id%> data-bs-parent="#accordionExample">
                             <div class="accordion-body container">
+                                <!-- TASK Title Row -->
                                 <div class="row">
                                     <div class="col-4 row-heading">Title : </div>
                                     <div class="col-8 row-data"><%=task.title%></div>
                                 </div>
+                                <!-- TASK Deadline Row -->
                                 <div class="row">
                                     <div class="col-4 row-heading">Deadline : </div>
                                     <div class="col-8 row-data"><%=task.deadline?task.deadline.getDate()+'-'+months[task.deadline.getMonth()]+'-'+task.deadline.getFullYear():'no deadline'%></div>
                                 </div>
+                                <!-- TASK Description Row -->
                                 <div class="row">
                                     <div class="col-4 row-heading">Description : </div>
                                     <div class="col-8 row-data"><%=task.description%></div>
