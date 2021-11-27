@@ -7,7 +7,8 @@ $( document ).ready(function() {
         });
     });
     $( "#datepicker" ).datepicker({
-        dateFormat: "dd-M-yy"
+        dateFormat: "dd-M-yy",
+        minDate: new Date()
     });
     // AJAX delete requests
     $("#del-tasks").click(function(){// function invoked on click of delete button

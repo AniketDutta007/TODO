@@ -43,7 +43,7 @@ module.exports.completeTask = function(req, res) {
             return;
         }
         console.log('Updated Task : ',updatedTask);
-        // return res.redirect('back');
+        return res.redirect('back');
     });
 };
 // delete task controller
